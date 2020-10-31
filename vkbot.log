@@ -1,0 +1,45 @@
+INFO:root:Start Analika: 2020-10-29 21:52:30.061590
+ERROR:root:2020-10-29 22:23:32.887061 list index out of range
+ERROR:root:2020-10-29 22:31:13.233856 <urlopen error [WinError 10060] Попытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое время не получен нужный отклик, или было разорвано уже установленное соединение из-за неверного отклика уже подключенного компьютера>
+ERROR:root:2020-10-29 22:33:03.183173 list index out of range
+ERROR:root:2020-10-29 23:08:39.127571 list index out of range
+ERROR:root:2020-10-29 23:21:46.594884 list index out of range
+ERROR:root:2020-10-29 23:52:51.973015 list index out of range
+INFO:root:Start Analika: 2020-10-30 11:31:03.769995
+ERROR:root:2020-10-30 11:31:04.818867 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110275.xlsx'
+ERROR:root:2020-10-30 11:31:05.264197 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110389.xlsx'
+ERROR:root:2020-10-30 11:31:05.703669 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110189.xlsx'
+ERROR:root:2020-10-30 11:31:06.153881 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110345.xlsx'
+ERROR:root:2020-10-30 11:31:06.591400 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110402.xlsx'
+ERROR:root:2020-10-30 11:31:07.051380 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110391.xlsx'
+ERROR:root:2020-10-30 11:31:07.515265 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110255.xlsx'
+ERROR:root:2020-10-30 11:31:07.952784 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110190.xlsx'
+ERROR:root:2020-10-30 11:31:08.403974 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1871.xlsx'
+ERROR:root:2020-10-30 11:31:08.850282 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110346.xlsx'
+ERROR:root:2020-10-30 11:31:09.281940 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1887.xlsx'
+ERROR:root:2020-10-30 11:31:09.709691 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1925.xlsx'
+ERROR:root:2020-10-30 11:31:10.144280 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_2094.xlsx'
+ERROR:root:2020-10-30 11:31:10.578868 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_110261.xlsx'
+ERROR:root:2020-10-30 11:31:11.119906 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_266.xlsx'
+ERROR:root:2020-10-30 11:31:11.551565 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1558.xlsx'
+ERROR:root:2020-10-30 11:31:11.992989 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_62.xlsx'
+ERROR:root:2020-10-30 11:31:12.467617 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_63.xlsx'
+ERROR:root:2020-10-30 11:31:12.927597 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_64.xlsx'
+ERROR:root:2020-10-30 11:31:13.402227 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_85.xlsx'
+ERROR:root:2020-10-30 11:31:13.853416 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_96.xlsx'
+ERROR:root:2020-10-30 11:31:14.326093 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1574.xlsx'
+ERROR:root:2020-10-30 11:31:14.758726 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_1642.xlsx'
+ERROR:root:2020-10-30 11:31:15.180620 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_326.xlsx'
+ERROR:root:2020-10-30 11:31:15.625950 [Errno 2] No such file or directory: 'src/excel/vuzs/role/vuz_327.xlsx'
+INFO:root:Start Analika: 2020-10-30 11:31:40.707055
+ERROR:root:2020-10-30 11:34:16.426352 list index out of range
+ERROR:root:2020-10-30 11:35:02.912650 list index out of range
+ERROR:root:2020-10-30 11:37:56.858346 list index out of range
+ERROR:root:2020-10-30 11:39:02.301505 list index out of range
+ERROR:root:2020-10-30 11:41:45.996834 list index out of range
+INFO:root:Start Analika: 2020-10-30 11:57:34.439740
+ERROR:root:2020-10-30 12:14:35.705298 list index out of range : inst.php?id=1927
+ERROR:root:2020-10-30 12:19:46.973327 list index out of range : inst.php?id=14013535
+ERROR:root:2020-10-30 12:39:11.317093 list index out of range : inst.php?id=12013222
+ERROR:root:2020-10-30 12:46:24.691647 list index out of range : inst.php?id=10001838
+ERROR:root:2020-10-30 13:04:30.727549 list index out of range : inst.php?id=10000820
