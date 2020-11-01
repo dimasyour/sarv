@@ -65,6 +65,7 @@ def parse_toExcel():
             try:
                 url = linkList[r]
                 r = requests.get('http://indicators.miccedu.ru/monitoring/2019/_vpo/' + url, headers=random_headers()).text
+                print(r)
                 table_e = \
                     pd.read_html(r, decimal=',',
                                  thousands='.')[3]
