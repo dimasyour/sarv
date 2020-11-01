@@ -161,7 +161,7 @@ def parse_toExcel():
 
                 pbar.update(1)
             except Exception as e:
-                logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(r))
+                logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(url))
                 pbar.update(1)
 
 
