@@ -442,6 +442,7 @@ def tableToTable():
                 ws.cell(row=i, column=163).value = dataVuzs[i]['fo']
                 ws.cell(row=i, column=164).value = dataVuzs[i]['region']
                 pbar.update(1)
+
             except Exception as e:
                 logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(listK[i]['vuz_id']))
                 pbar.update(1) 
