@@ -9,14 +9,17 @@ def getJsonList(path):
     return jsons
 
 
-def mergeJsonVuzs():
-    listik = getJsonList('src/json/vuzs/')
+def mergeJsonVuzs(json_path, output):
+    listik = getJsonList(json_path)
     fdf = {}
     for i in listik:
-        with open('src/json/vuzs/'+i, encoding="utf-8") as json_file:
+        with open(json_path + i, encoding="utf-8") as json_file:
             dataVuzs = json.load(json_file)
             fdf.update(dataVuzs)
-    with open('src/vuz_merge.json', 'w', encoding="utf-8") as fp:
+    with open(output, 'w', encoding="utf-8") as fp:
         json.dump(fdf, fp, ensure_ascii=False)
 
-mergeJsonVuzs()
+
+mergeJsonVuzs('src/json/vuzs/', 'src/vuz_merge.json')
+mergeJsonVuzs('src/json/by_fo/', 'src/by_fo.json')
+mergeJsonVuzs('src/json/by_city/', 'src/by_city.json')

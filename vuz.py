@@ -4,21 +4,37 @@ import logging
 from datetime import datetime
 
 import pandas as pd
+import requests
 from colorama import Fore
 from tqdm import tqdm
+from random import choice
 
 URL_FO = 'http://indicators.miccedu.ru/monitoring/2019/_vpo/material.php?type=1&id=4'
 ID = 'an'
-HEADERS = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                  'Chrome/81.0.4044.129 Safari/537.36 OPR/68.0.3618.63',
-    'accept': '*/*'}
+
 logging.basicConfig(filename="vkbot.log", level=logging.INFO)
 logging.info("Start Analika: " + str(datetime.now()))
 
+AGENTS = [
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14',
+    'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
+    'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0']
+
+
+def random_headers():
+    return {'User-Agent': choice(AGENTS),
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'}
+
 
 def parse_toExcel():
-    with open('src/vuz_merge.json', encoding="utf-8") as json_file:
+    with open('src/json/main.json', encoding="utf-8") as json_file:
         data = json.load(json_file)
     intIdAll = []
     listFileExcelE = []
@@ -48,8 +64,9 @@ def parse_toExcel():
         for r in range(len(linkList)):
             try:
                 url = linkList[r]
+                r = requests.get(url, headers=random_headers()).text
                 table_e = \
-                    pd.read_html('http://indicators.miccedu.ru/monitoring/2019/_vpo/' + url, decimal=',',
+                    pd.read_html(r, decimal=',',
                                  thousands='.')[3]
                 table_e.to_excel('src/excel/vuzs/e/vuz' + '_' + str(url.split('id=')[1]) + '.xlsx', encoding='cp1251')
                 # listFileExcelE.append('src/excel/vuzs/e/vuz' + '_' + str(url.split('id=')[1]) + '.xlsx')

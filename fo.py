@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
 import json
+import logging
 
 import pandas as pd
 from colorama import Fore
@@ -16,31 +18,36 @@ HEADERS = {
                   'Chrome/81.0.4044.129 Safari/537.36 OPR/68.0.3618.63',
     'accept': '*/*'}
 
+logging.basicConfig(filename="vkbot.log", level=logging.INFO)
+logging.info("Start Analika: " + str(datetime.now()))
+
 
 def parse_toExcel():
-    print(Fore.GREEN + 'Парсинг Html-страниц в Excel...')
-    with open('src/cityAndRegions.json', encoding="utf-8") as json_file:
-        data = json.load(json_file)
-    intIdAll = []
-    arrIdCity = []
-    listFileExcel = []
-    linkList = []
-    for x in data:
-        link = str(data[x]['link'])
-        intIdAll.append(int(link.split('id=')[1]))
-        linkList.append(str(data[x]['link']))
-    for i in range(len(intIdAll)):
-        if intIdAll[i] / 10000 < 1:
-            arrIdCity.append(intIdAll[i])
-    with tqdm(total=len(linkList)) as pbar:
-        for r in range(len(linkList)):
-            url = linkList[r]
-            table = pd.read_html(url, decimal=',', thousands='.')[6]
-            table.to_excel('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx', encoding='cp1251')
-            listFileExcel.append('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx')
-            formatCell('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx')
-            pbar.update(1)
-    return listFileExcel
+    try:
+        with open('src/cityAndRegions.json', encoding="utf-8") as json_file:
+            data = json.load(json_file)
+        intIdAll = []
+        arrIdCity = []
+        listFileExcel = []
+        linkList = []
+        for x in data:
+            link = str(data[x]['link'])
+            intIdAll.append(int(link.split('id=')[1]))
+            linkList.append(str(data[x]['link']))
+        for i in range(len(intIdAll)):
+            if intIdAll[i] / 10000 < 1:
+                arrIdCity.append(intIdAll[i])
+        with tqdm(total=len(linkList)) as pbar:
+            for r in range(len(linkList)):
+                url = linkList[r]
+                table = pd.read_html(url, decimal=',', thousands='.')[6]
+                table.to_excel('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx', encoding='cp1251')
+                listFileExcel.append('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx')
+                formatCell('src/excel/fo/fo' + '_' + str(url.split('id=')[1]) + '.xlsx')
+                pbar.update(1)
+        return listFileExcel
+    except Exception as e:
+        logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(url))
 
 
 def formatCell(filename):
@@ -99,5 +106,6 @@ def stylesCell(sheet):
     # sheet.unmerge_cells(start_row=1, start_column=4, end_row=1, end_column=12)
     # sheet.merge_cells(start_row=1, start_column=1, end_row=1, end_column=12)
     # sheet['A1'].value = 'Заголовок'
+
 
 parse_toExcel()

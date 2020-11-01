@@ -1,5 +1,5 @@
 import json
-
+from vuz import random_headers
 import requests
 from bs4 import BeautifulSoup
 
@@ -61,5 +61,5 @@ def toJSON(filename, var):
         json.dump(var, fp, ensure_ascii=False)
 
 
-
 toJSON('cityAndRegions.json', parse_main(URL, ID))
+
