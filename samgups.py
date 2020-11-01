@@ -444,7 +444,7 @@ def tableToTable():
                 pbar.update(1)
             except Exception as e:
                 logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(listK[i]['vuz_id']))
-                pbar.update(1)
+                pbar.update(1) 
     wb.save('src/excel.xlsx')
 
 
