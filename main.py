@@ -1,5 +1,5 @@
 import json
-from vuz import random_headers
+
 import requests
 from bs4 import BeautifulSoup
 
