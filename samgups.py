@@ -10,18 +10,23 @@ logging.info("Excel: " + str(datetime.now()))
 
 
 # данные о универе по региону (фо)
-def poRegions():
+# def poRegions():
+#     listK = []
+#     with open('src/json/main.json', encoding="utf-8") as json_file:
+#         dataVuzs = json.load(json_file)
+#     listVusz = list(dataVuzs.keys())
+#     for x in listVusz:
+#         listK.append(dataVuzs[x])
+#     return listK
+
+
+def tableToTable():
     listK = []
     with open('src/json/main.json', encoding="utf-8") as json_file:
         dataVuzs = json.load(json_file)
     listVusz = list(dataVuzs.keys())
     for x in listVusz:
         listK.append(dataVuzs[x])
-    return listK
-
-
-def tableToTable():
-    listK = poRegions()
     wb = load_workbook(filename='src/excel.xlsx')
     ws = wb.worksheets[0]
     with tqdm(total=len(listK)) as pbar:
@@ -434,7 +439,8 @@ def tableToTable():
                 ws.cell(row=i, column=161).value = dop6_8
                 ws.cell(row=i, column=162).value = dop6_9
 
-
+                ws.cell(row=i, column=163).value = dataVuzs[i]['fo']
+                ws.cell(row=i, column=164).value = dataVuzs[i]['region']
                 pbar.update(1)
             except Exception as e:
                 logging.error(str(datetime.now()) + " " + str(e) + str(" : ") + str(listK[i]['vuz_id']))
